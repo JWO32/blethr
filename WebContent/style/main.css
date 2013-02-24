@@ -1,0 +1,84 @@
+@CHARSET "UTF-8";
+
+body
+{
+	font-family: verdana, helvetica, sans-serif;
+	background-color: #6A92D4;
+}
+
+#mainContent
+{
+	margin: 0 auto;
+	width: 60%;
+	background-color: #4479D4;
+	color: #FFFFFF;
+}
+
+#mainContent h1
+{
+	margin: 0 auto;
+	color: #FFFFFF;
+}
+
+#headerBox
+{
+	margin: 0 auto;
+	width: 50%;
+	padding: 5px;
+}
+
+#headerBox label
+{
+	display: block;
+}
+#headerBox form
+{
+	margin: 5px;
+	border: 1px solid;
+}
+
+#headerBox a:hover
+{
+	color: #052D6E;
+	background-color: #FFFFFF;
+}
+
+#messages
+{
+	margin: 0 auto;
+	margin-top: 20px;
+	width: 40%;
+	height: 500px;
+	overflow: scroll;
+	border: 2px dashed;
+}
+
+.message
+{
+	font-size: 14pt;
+	margin: 10px;
+	background-color: #6A93D4;
+}
+
+.username
+{
+	display: block;
+}
+
+.comment
+{
+	display: block;
+}
+
+#admin
+{
+	background-color: #6A92D4;
+	margin-top: 10px;
+	
+}
+
+#admin label
+{
+	font-weight: bold;
+	display: block;
+}
