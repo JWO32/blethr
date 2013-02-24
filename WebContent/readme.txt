@@ -7,7 +7,7 @@ Restful Interface
 
 The rest interface is group into 3 separate sets of functions:
 
-/login/
+/login/ (form data) (POST)
 
 /login/logout (GET)
 
@@ -23,7 +23,7 @@ The rest interface is group into 3 separate sets of functions:
 
 /message/addMessage (POST)
 /message/getAllMessages (GET)
-/message/getMessageById/messageid (GET)
+/message/findMessageById/messageid (GET)
 /message/findMessagesByUsername/username (GET)
 /message/delete/messageid (DELETE)
 

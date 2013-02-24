@@ -1,7 +1,7 @@
 <%
-boolean loggedin = (Boolean) session.getAttribute("loggedin");
+Boolean loggedin = (Boolean) session.getAttribute("loggedin");
 
-if(loggedin == false)
+if(loggedin == null)
 {
 	response.sendRedirect("../index.jsp");
 }
