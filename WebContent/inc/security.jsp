@@ -1,8 +1,12 @@
 <%
+
+// Doesn't work... 
+
 Boolean loggedin = (Boolean) session.getAttribute("loggedin");
+RequestDispatcher rd = null;
 
 if(loggedin == null)
 {
-	response.sendRedirect("../index.jsp");
+	pageContext.forward("../index.jsp");
 }
 %>

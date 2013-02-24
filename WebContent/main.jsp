@@ -33,6 +33,7 @@ $('#refreshbutton').click(function()
 //Refresh all messages every 5 seconds
 self.setInterval(refreshMessages, 5000);
 
+//makes an ajax rest call to add a new message
 var addMessage = function()
 {
 	var userid = <%=User.getUserID()%>;
@@ -44,15 +45,9 @@ var addMessage = function()
 	var message = $('#addNewMessageForm').serialize();
 	
 	$.ajax({
-		// The link we are accessing.
 		url: 'message/addMessage/'+userid,
-		
-		// The type of request.
 		type: "post",
-		
-		// The type of data that is getting returned.
 		dataType: "text",
-		
 		data: message,
 		
 		error: function()
@@ -71,17 +66,13 @@ var addMessage = function()
 	setTimeout(refreshMessages, 750);
 };
 
+// makes an ajax rest call to add a new friend to the friend list
 var addFriend = function()
 {
 	var friendId = $('#allUsers').val();
 	$.ajax({
-	// The link we are accessing.
 	url: 'user/addfriend/'+<%=User.getUserID()%>+'/'+friendId,
-	
-	// The type of request.
 	type: "GET",
-	
-	// The type of data that is getting returned.
 	dataType: "text",
 	
 	error: function()
@@ -97,17 +88,13 @@ var addFriend = function()
 	}});	
 };
 
+//Makes an ajax rest call to refresh (update) the list of messages
 var refreshMessages = function()
 {
 	$('#messages').empty();
 	$.ajax({
-		// The link we are accessing.
 		url:  "message/getAllMessages",
-		
-		// The type of request.
 		type: "GET",
-		
-		// The type of data that is getting returned.
 		dataType: "json",
 		
 		error: function()
@@ -137,16 +124,12 @@ var refreshMessages = function()
 	});	
 };
 
+//makes an ajax rest call to delete the specified message
 var deleterefresh = function(messageID)
 {
 	$.ajax({
-		// The link we are accessing.
 		url: 'message/delete/'+messageID,
-		
-		// The type of request.
 		type: "DELETE",
-		
-		// The type of data that is getting returned.
 		dataType: "text",
 		
 		error: function()
@@ -171,17 +154,13 @@ $("#friendList").on("change", function()
 	findFriends();
 });
 
+//Makes an ajax rest call to find friends of the current user
 var findFriends = function()
 {
 	var url = "user/findfriends/<%=User.getUserID()%>";
 	$.ajax({
-		// The link we are accessing.
 		url:  url,
-		
-		// The type of request.
 		type: "GET",
-		
-		// The type of data that is getting returned.
 		dataType: "json",
 		
 		error: function()
@@ -207,25 +186,20 @@ var findFriends = function()
 
 <script type="text/javascript">
 
+//makes an ajax rest call to insert a user into the database
 var addNewUser = function()
 {
 	var userDetails = $('#addUserForm').serialize();
 	
 	$.ajax({
-		// The link we are accessing.
 		url:  "user/register",
-		
-		// The type of request.
 		type: "POST",
-		
-		data: userDetails,
-		
+		data: userDetails,		
 		error: function()
 		{
 			alert( "Error: Server not responding" );
 			
 		},
-
 		success: function(data)
 		{
 			alert(data);
@@ -234,17 +208,12 @@ var addNewUser = function()
 	});
 };	
 
-
+//Makes an ajax rest call to fetch all users
 var getUserNames = function()
 {
 	$.ajax({
-		// The link we are accessing.
 		url:  "user/getallusers",
-		
-		// The type of request.
 		type: "GET",
-		
-		// The type of data that is getting returned.
 		dataType: "json",
 		
 		error: function()
@@ -271,18 +240,14 @@ var getUserNames = function()
 	});
 };
 
+//Makes an ajax rest call to delete a specified user
 var deleteuser = function()
 {
 	var userid = $('#deleteUser').val();
 	
 	$.ajax({
-		// The link we are accessing.
 		url:  "user/delete/"+userid,
-		
-		// The type of request.
 		type: "DELETE",
-		
-		// The type of data that is getting returned.
 		dataType: "text",
 		
 		error: function()
