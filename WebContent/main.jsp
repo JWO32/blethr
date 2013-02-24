@@ -10,6 +10,11 @@ UserDetails User = (UserDetails) request.getAttribute("Login");
 %>
 
 
+<!-- 
+
+Javascript Ajax functions.
+ -->
+
 <script type="text/javascript">
 
 $('#admin').hide();

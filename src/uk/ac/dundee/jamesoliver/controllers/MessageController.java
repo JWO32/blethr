@@ -47,6 +47,7 @@ public class MessageController extends HttpServlet
 		String[] pathComponents = path.split("/");
 		StringBuffer jsonBuffer = new StringBuffer();
 		String finalJson = new String();
+		boolean success = false;
 		
 		if(pathComponents.length < 3)
 		{
@@ -145,6 +146,13 @@ public class MessageController extends HttpServlet
 				resp.setContentLength(0);
 				return;
 			}
+		}
+		
+		if(success == false)
+		{
+			resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+			resp.setContentType("test/plain");
+			resp.setContentLength(0);
 		}
 	}
 

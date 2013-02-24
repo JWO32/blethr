@@ -16,7 +16,8 @@ public class MessageManager
 	
 	private final String InsertMessage = "INSERT INTO blethrs (userid, comment) VALUES (?, ?);";
 	private final String GetAllMessages = "SELECT blethrid, blethrs.userid, comment, users.username FROM blethrs, users WHERE blethrs.userid = users.userid ORDER BY blethrid DESC;";
-	private final String GetAllMessagesByID = "SELECT * FROM blethrs WHERE userid =?;";
+	private final String GetAllMessagesByID = "SELECT blethrid, blethrs.userid, comment, users.username FROM blethrs, users WHERE blethrs.userid =? AND blethrs.userid = users.userid ORDER BY blethrid DESC;";
+	private final String GetAllMessagesByUserName = "SELECT  blethrid, blethrs.userid, comment, users.username FROM blethrs, users WHERE users.username =? AND blethrs.userid = users.userid ORDER BY blethrid DESC;";
 	private final String DeleteMessageByID = "DELETE FROM blethrs WHERE blethrid=?";
 
 	public MessageManager(DataSource dataSource)
@@ -68,8 +69,19 @@ public class MessageManager
 	public ArrayList<MessageDetails> fetchMessagesByUserName(String username)
 	{
 		ArrayList<MessageDetails> messageList = new ArrayList<MessageDetails>();
+		String query = GetAllMessagesByUserName;
+		String[] parameters = new String[1];
 		
+		parameters[0] = username;
 		
+		try
+		{
+			messageList = doFetchQuery(query, parameters);
+		}catch(SQLException ex)
+		{
+			ex.printStackTrace();
+			messageList= null;
+		}
 		
 		return messageList;
 	}
