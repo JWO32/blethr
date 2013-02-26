@@ -27,5 +27,9 @@ The rest interface is group into 3 separate sets of functions:
 /message/findMessagesByUsername/username (GET)
 /message/delete/messageid (DELETE)
 
+Sample username and password:
+
+jimbo
+pass123
 
 Not all functionality has been built into the client due to time constraints.

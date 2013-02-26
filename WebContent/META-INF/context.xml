@@ -4,10 +4,10 @@
 	type="javax.sql.DataSource"
 	auth="Container"
 	driverClassName="com.mysql.jdbc.Driver"
-	username="root"
-	password="elysium"
+	username="JamesOliver"
+	password="ac31004"
 	maxActive="100" 
 	maxIdle="30" 
 	maxWait="10000"
-	url="jdbc:mysql://localhost:3306/blethr" />
+	url="jdbc:mysql://arlia.computing.dundee.ac.uk:3306/jamesoliver" />
 </Context>
